@@ -33,3 +33,11 @@ sklearn.cluster
 Files:
 Input data: ex7data.mat, bird_small.img (These are both from Coursera exercise)
 Python files: Top.py, runkMeans.py, kMeansInitCentroids.py, findClosestCentroids.py, computeCentroids.py
+
+Work In Progress:
+Some runs will throw the following warning when running custom image compression:
+/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/numpy/core/_methods.py:55: RuntimeWarning: Mean of empty slice.
+  warnings.warn("Mean of empty slice.", RuntimeWarning)
+/System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/numpy/core/_methods.py:65: RuntimeWarning: invalid value encountered in true_divide
+  ret, rcount, out=ret, casting='unsafe', subok=False)
+This will lead to bad convergence.
