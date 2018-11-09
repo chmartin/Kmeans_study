@@ -149,7 +149,7 @@ raw_input("Press any key to continue")
 
 #Determine best number of clusters
 Kmax = 250
-step = 10
+step = 25
 distortions = np.zeros(Kmax//step,dtype=np.int32)
 Ks = list(xrange(1,Kmax+1,step))
 for i in Ks:
