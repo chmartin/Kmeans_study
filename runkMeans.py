@@ -4,7 +4,7 @@ import matplotlib.pyplot as pyplot
 from findClosestCentroids import findClosestCentroids
 from computeCentroids import computeCentroids
 
-# Manual kMeans implementation.
+# Manual kMeans implementation. Plotting option for 2D data.
 
 def runkMeans(X, initial_centroids, max_iters, plot_progress):
 	""" My Manual kMeans implementation."""
@@ -25,6 +25,9 @@ def runkMeans(X, initial_centroids, max_iters, plot_progress):
 		fig = pyplot.figure()
 		pyplot.ion()
 		ax = pyplot.axes()
+		ax.title('K-means centroid evolution')
+		ax.ylabel('Feature 2')
+		ax.xlabel('Feature 1')
 		pyplot.show()
 	
 	# Run K-Means, Loop over for number of iterations specified in input
@@ -34,9 +37,10 @@ def runkMeans(X, initial_centroids, max_iters, plot_progress):
 		# For each example in X, assign it to the closest centroid
 		indicies = findClosestCentroids(X, centroids)
 		if plot_progress == True:
-			ax.scatter(X[:,0],X[:,1],c=indicies)
-			ax.scatter(centroids[:,0], centroids[:,1], marker='x', c='r', linewidth=2)
+			ax.scatter(X[:,0],X[:,1],c=indicies, label='Data for centroid {0}'.format(indicies))
+			ax.scatter(centroids[:,0], centroids[:,1], marker='x', c='r', linewidth=2, label='Centroids')
 			previous_centroids = centroids
+			ax.legend()
 			pyplot.draw()
 			raw_input("Press any key to continue")
 		# compute new centroids
