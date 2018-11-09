@@ -148,12 +148,13 @@ raw_input("Press any key to continue")
 
 
 #Determine best number of clusters
-Kmax = 255
-distortions = np.zeros(Kmax,dtype=np.int32)
-Ks = list(xrange(1,Kmax+1,10))
+Kmax = 250
+step = 10
+distortions = np.zeros(Kmax//step,dtype=np.int32)
+Ks = list(xrange(1,Kmax+1,step))
 for i in Ks:
 	kmeans = KMeans(n_clusters=i).fit(A_flat)
-	distortions[i-1] = kmeans.inertia_
+	distortions[Ks.index(i)] = kmeans.inertia_
 
 pyplot.clf()
 pyplot.ion()
