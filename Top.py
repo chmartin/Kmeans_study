@@ -81,6 +81,7 @@ after_size = centroids_size + indicies_size
 reduction = float(after_size)/float(A_size)
 
 #Plot to Compare
+fig = pyplot.figure()
 pyplot.clf()
 pyplot.ion()
 pyplot.axis("off")
