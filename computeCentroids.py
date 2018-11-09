@@ -4,6 +4,8 @@ import numpy as np
 # Function to find centroids
 
 def computeCentroids (X, indicies, num_centroids):
+	""" Return Centroids for manual K-means."""
+	
 	#number of datapoints
 	m = X.shape[0]
 	#number of dimensions
