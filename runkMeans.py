@@ -26,8 +26,8 @@ def runkMeans(X, initial_centroids, max_iters, plot_progress):
 		pyplot.ion()
 		ax = pyplot.axes()
 		ax.set_title('K-means centroid evolution')
-		ax.ylabel('Feature 2')
-		ax.xlabel('Feature 1')
+		pyplot.ylabel('Feature 2')
+		pyplot.xlabel('Feature 1')
 		pyplot.show()
 	
 	# Run K-Means, Loop over for number of iterations specified in input
