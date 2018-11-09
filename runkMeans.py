@@ -32,11 +32,11 @@ def runkMeans(X, initial_centroids, max_iters, plot_progress):
 	
 	# Run K-Means, Loop over for number of iterations specified in input
 	for i in xrange(0,max_iters):
-		# Output progress
-		print 'K-Means iteration ', i, '/', max_iters, ' ...\n'
 		# For each example in X, assign it to the closest centroid
 		indicies = findClosestCentroids(X, centroids)
 		if plot_progress == True:
+			# Output progress
+			print 'K-Means iteration ', i, '/', max_iters, ' ...\n'
 			ax.scatter(X[:,0],X[:,1],c=indicies, label='Data Points')
 			ax.scatter(centroids[:,0], centroids[:,1], marker='x', c='r', linewidth=2, label='Centroids')
 			previous_centroids = centroids
