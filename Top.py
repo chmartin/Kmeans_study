@@ -9,6 +9,7 @@ from runkMeans import runkMeans
 from kMeansInitCentroids import kMeansInitCentroids
 from pympler import asizeof
 from sklearn.cluster import KMeans
+import time as time
 
 # Step 1 show K-means in action
 print 'Finding closest centroids.\n\n'
@@ -64,11 +65,14 @@ A_flat = A.reshape(-1,3)
 # Test values
 K = 128; 
 max_iters = 100;
+#Set start time for runtime comparison
+start_time = time.time()
 # pick K random pixels to be starting centroid colors 
 initial_centroids = kMeansInitCentroids(A_flat, K)
 
 # Run K-Means algorithm.
 centroids, indicies = runkMeans(A_flat, initial_centroids, max_iters, False)
+Manual_time = time.time() - start_time
 
 #Recover A
 centroids_size = asizeof.asizeof(centroids)
@@ -97,7 +101,9 @@ pyplot.imshow(A_recovered)
 raw_input("Press any key to continue")
 
 #Compare to sklearn KMeans
+start_time = time.time()
 kmeans = KMeans(n_clusters=K,max_iter = max_iters,init='random').fit(A_flat)
+Sklearn_time = time.time() - start_time
 centroids_sklearn = kmeans.cluster_centers_
 indicies_sklearn = kmeans.labels_
 distortion = kmeans.inertia_
@@ -127,13 +133,17 @@ ax.set_title('Before size: {0}'.format(A_size))
 ax.axis("off")
 ax.imshow(A)
 ax = pyplot.subplot(2,2,2)
-ax.set_title('My {0} colors, Size: {1}+{2}\n Frac Size {3:0.2f}'.format(K,centroids_size,indicies_size,reduction))
+ax.set_title('My {0} colors, Size: {1}+{2}'.format(K,centroids_size,indicies_size))
 ax.axis("off")
 pyplot.imshow(A_recovered)
 ax = pyplot.subplot(2,2,3)
-ax.set_title('Sklearn {0} colors, Size: {1}+{2}\n Frac Size {3:0.2f}'.format(K,centroids_size_sklearn,indicies_size_sklearn,reduction_sklearn))
+ax.set_title('Sklearn {0} colors, Size: {1}+{2}'.format(K,centroids_size_sklearn,indicies_size_sklearn))
 ax.axis("off")
 pyplot.imshow(A_recovered_sklearn)
+print 'Size comparison (as fraction of initial size)'
+print 'Manual: {0:.2f}, Sklearn: {1:.2f}'.format(reduction,reduction_sklearn)
+print 'Runtime comparison'
+print 'Manual: {0:.4f}, Sklearn: {1:.4f}'.format(Manual_time,Sklearn_time)
 raw_input("Press any key to continue")
 
 
