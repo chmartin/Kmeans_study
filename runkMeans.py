@@ -4,9 +4,11 @@ import matplotlib.pyplot as pyplot
 from findClosestCentroids import findClosestCentroids
 from computeCentroids import computeCentroids
 
-# Function to find centroids
+# Manual kMeans implementation.
 
 def runkMeans(X, initial_centroids, max_iters, plot_progress):
+	""" My Manual kMeans implementation."""
+	
 	#number of datapoints
 	m = X.shape[0]
 	#number of dimensions
