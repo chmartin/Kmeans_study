@@ -1,7 +1,7 @@
 # Kmeans_study
 This is a quick project studying Kmeans clustering using python.
 
-The original idea was to recreate a Octave/Matlab Kmeans image compression exercise from the Coursea Machine Learning Course by Andrew Ng in Python. Then I wanted to do some quck comparison of my 'manual' Kmeans algorithm with the sklearn built in kmeans methods.
+The original idea was to recreate a Octave/Matlab Kmeans image compression exercise from the "Coursea Machine Learning Course by Andrew Ng" in Python. Then I wanted to do some quck comparison of my 'manual' Kmeans algorithm with the sklearn built in kmeans methods.
 
 Running program 'Top.py' will do the following, usually pausing after each:
 
