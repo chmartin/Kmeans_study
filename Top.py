@@ -142,7 +142,7 @@ ax.axis("off")
 pyplot.imshow(A_recovered_sklearn)
 print 'Size comparison (as fraction of initial size)'
 print 'Manual: {0:.2f}, Sklearn: {1:.2f}'.format(reduction,reduction_sklearn)
-print 'Runtime comparison'
+print 'Runtime comparison in seconds'
 print 'Manual: {0:.4f}, Sklearn: {1:.4f}'.format(Manual_time,Sklearn_time)
 raw_input("Press any key to continue")
 
