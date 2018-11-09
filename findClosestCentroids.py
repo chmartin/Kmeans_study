@@ -4,6 +4,8 @@ import numpy as np
 # Function to find centroids
 
 def findClosestCentroids (X, centroids):
+	""" Return index of closest centroid for each datapoint."""
+	
 	# number of centroids
 	K = centroids.shape[0]
 	#number of datapoints
