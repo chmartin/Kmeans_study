@@ -148,9 +148,9 @@ raw_input("Press any key to continue")
 
 
 #Determine best number of clusters
-Kmax = 100
+Kmax = 255
 distortions = np.zeros(Kmax,dtype=np.int32)
-Ks = list(xrange(1,Kmax+1))
+Ks = list(xrange(1,Kmax+1,10))
 for i in Ks:
 	kmeans = KMeans(n_clusters=i).fit(A_flat)
 	distortions[i-1] = kmeans.inertia_
