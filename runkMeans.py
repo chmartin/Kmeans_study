@@ -37,10 +37,11 @@ def runkMeans(X, initial_centroids, max_iters, plot_progress):
 		# For each example in X, assign it to the closest centroid
 		indicies = findClosestCentroids(X, centroids)
 		if plot_progress == True:
-			ax.scatter(X[:,0],X[:,1],c=indicies, label='Data for centroid {0}'.format(indicies))
+			ax.scatter(X[:,0],X[:,1],c=indicies, label='Data Points')
 			ax.scatter(centroids[:,0], centroids[:,1], marker='x', c='r', linewidth=2, label='Centroids')
 			previous_centroids = centroids
-			ax.legend()
+			if i == 0:
+				ax.legend()
 			pyplot.draw()
 			raw_input("Press any key to continue")
 		# compute new centroids
