@@ -147,7 +147,7 @@ print 'Manual: {0:.4f}, Sklearn: {1:.4f}'.format(Manual_time,Sklearn_time)
 raw_input("Press any key to continue")
 
 
-#Determine best number of clusters
+#Plot distoriton as a function of the number of clusters
 Kmax = 250
 step = 25
 distortions = np.zeros(Kmax//step,dtype=np.int32)
