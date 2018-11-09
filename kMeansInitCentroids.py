@@ -2,9 +2,11 @@
 import numpy as np
 import random
 
-# Function to find centroids
+# Function to pick K random datapoints initial centroids
 
 def kMeansInitCentroids(X, num_centroids):
+	"""Function to pick K random datapoints as initial centroids."""
+	
 	#number of datapoints
 	m = X.shape[0]
 	# Centroids to be returned
